@@ -40,6 +40,9 @@ struct MovieDetailsView: View {
         }
         .navigationTitle(movie.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ShareLink(item: movie.posterURL!)
+        }
         .task {
             do {
                 let service = CastService()
