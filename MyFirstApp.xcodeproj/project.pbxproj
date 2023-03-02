@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A6B0B929B026B40025073C /* CastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B0B829B026B40025073C /* CastService.swift */; };
+		84A6B0BB29B026D50025073C /* MovieCastMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B0BA29B026D50025073C /* MovieCastMember.swift */; };
+		84A6B0BD29B062D60025073C /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B0BC29B062D60025073C /* MovieDetailsView.swift */; };
 		84BB9D4629AFD6D800DB34BB /* MyFirstAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB9D4529AFD6D800DB34BB /* MyFirstAppApp.swift */; };
 		84BB9D4829AFD6D800DB34BB /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB9D4729AFD6D800DB34BB /* MoviesView.swift */; };
 		84BB9D4A29AFD6D900DB34BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BB9D4929AFD6D900DB34BB /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84A6B0B829B026B40025073C /* CastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastService.swift; sourceTree = "<group>"; };
+		84A6B0BA29B026D50025073C /* MovieCastMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCastMember.swift; sourceTree = "<group>"; };
+		84A6B0BC29B062D60025073C /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		84BB9D4229AFD6D800DB34BB /* MyFirstApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFirstApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BB9D4529AFD6D800DB34BB /* MyFirstAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFirstAppApp.swift; sourceTree = "<group>"; };
 		84BB9D4729AFD6D800DB34BB /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
@@ -80,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				84BB9D4729AFD6D800DB34BB /* MoviesView.swift */,
+				84A6B0BC29B062D60025073C /* MovieDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -87,6 +94,7 @@
 		84BB9D5629AFE25400DB34BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84A6B0BA29B026D50025073C /* MovieCastMember.swift */,
 				84BB9D5329AFD72600DB34BB /* Movie.swift */,
 			);
 			path = Model;
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				84BB9D5829AFE31D00DB34BB /* MoviesService.swift */,
+				84A6B0B829B026B40025073C /* CastService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -178,9 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A6B0B929B026B40025073C /* CastService.swift in Sources */,
 				84BB9D4829AFD6D800DB34BB /* MoviesView.swift in Sources */,
+				84A6B0BD29B062D60025073C /* MovieDetailsView.swift in Sources */,
 				84BB9D4629AFD6D800DB34BB /* MyFirstAppApp.swift in Sources */,
 				84BB9D5929AFE31D00DB34BB /* MoviesService.swift in Sources */,
+				84A6B0BB29B026D50025073C /* MovieCastMember.swift in Sources */,
 				84BB9D5429AFD72600DB34BB /* Movie.swift in Sources */,
 				84DB893729B0080600C15CCB /* MoviesViewModel.swift in Sources */,
 			);

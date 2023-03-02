@@ -9,37 +9,71 @@ import SwiftUI
 
 struct MoviesView: View {
     
-    @StateObject var viewModel = MoviesViewModel()
+    @StateObject private var viewModel = MoviesViewModel()
     
     var body: some View {
-        List(viewModel.movies) { movie in
-            HStack {
-                AsyncImage(url: movie.posterURL) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ProgressView()
+        Group {
+            
+            switch viewModel.state {
+            case .loading:
+                ProgressView()
+            case .error(let error):
+                VStack {
+                    Text(error.localizedDescription)
+                    
+                    Button("Retry?") {
+                        Task {
+                            await viewModel.loadMovies()
+                        }
+                    }
                 }
-                .frame(width: 80)
-                VStack(alignment: .leading) {
-                    Text(movie.title)
-                        .font(.headline)
-                        .bold()
-                    Text(movie .overview)
-                        .lineLimit(4)
-                }
+            case .loaded(let movies):
+                list(of: movies)
             }
-            .padding()
         }
+        .navigationTitle("Upcoming Movies")
         .task {
             await viewModel.loadMovies()
+        }
+    }
+    
+    @ViewBuilder
+    func list(of movies: [Movie]) -> some View {
+        if movies.isEmpty == false {
+            List(movies) { movie in
+                NavigationLink {
+                    MovieDetailsView(movie: movie)
+                } label: {
+                    HStack {
+                        AsyncImage(url: movie.posterURL) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 80)
+                        VStack(alignment: .leading) {
+                            Text(movie.title)
+                                .font(.headline)
+                                .bold()
+                            Text(movie .overview)
+                                .lineLimit(4)
+                        }
+                    }
+                    .padding()
+                }
+            }
+        } else {
+            Text("No upcoming movies")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesView()
+        NavigationView {
+            MoviesView()
+        }
     }
 }

@@ -9,16 +9,22 @@ import Foundation
 
 @MainActor
 class MoviesViewModel: ObservableObject {
+    enum State {
+        case loading
+        case loaded(movies: [Movie])
+        case error(Error)
+    }
     
-    @Published var movies: [Movie] = []
+    @Published var state: State = .loaded(movies: .mock)
     
     let service = MoviesService()
     
     func loadMovies() async {
         do {
-            movies = try await service.getMoviesFromApi()
+            let movies = try await service.getMoviesFromApi()
+            state = .loaded(movies: movies)
         } catch {
-            print(error.localizedDescription)
+            state = .error(error)
         }
         
     }
